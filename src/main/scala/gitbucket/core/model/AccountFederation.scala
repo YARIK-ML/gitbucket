@@ -11,8 +11,8 @@ trait AccountFederationComponent { self: Profile =>
     val userName = column[String]("USER_NAME")
     def * = (issuer, subject, userName).mapTo[AccountFederation]
 
-    def byPrimaryKey(issuer: String, subject: String): Rep[Boolean] =
-      (this.issuer === issuer.bind) && (this.subject === subject.bind)
+    def byPrimaryKey(issuer: String, userName: String): Rep[Boolean] =
+      (this.issuer === issuer.bind) && (this.userName === userName.bind)
   }
 }
 

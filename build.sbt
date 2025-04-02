@@ -38,14 +38,14 @@ libraryDependencies ++= Seq(
   "org.apache.commons"        % "commons-email"                % "1.6.0",
   "commons-net"               % "commons-net"                  % "3.11.1",
   "org.apache.httpcomponents" % "httpclient"                   % "4.5.14",
-  "org.apache.sshd"           % "apache-sshd"                  % "2.14.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
+  "org.apache.sshd"           % "apache-sshd"                  % "2.15.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
-  ) exclude ("org.apache.sshd", "sshd-netty"),
+  ) exclude ("org.apache.sshd", "sshd-netty") exclude ("org.apache.sshd", "sshd-spring-sftp"),
   "org.apache.tika"                 % "tika-core"                % "3.0.0",
   "com.github.takezoe"             %% "blocking-slick"           % "0.0.14",
   "com.novell.ldap"                 % "jldap"                    % "2009-10-07",
-  "com.h2database"                  % "h2"                       % "1.4.199",
+  "com.h2database"                  % "h2"                       % "2.2.220",
   "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
   "org.postgresql"                  % "postgresql"               % "42.7.4",
   "ch.qos.logback"                  % "logback-classic"          % "1.5.15",
@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
   "org.cache2k"                     % "cache2k-all"              % "1.6.0.Final",
   "net.coobird"                     % "thumbnailator"            % "0.4.20",
   "com.github.zafarkhaja"           % "java-semver"              % "0.10.2",
-  "com.nimbusds"                    % "oauth2-oidc-sdk"          % "11.20.1",
+  "com.nimbusds"                    % "oauth2-oidc-sdk"          % "11.23.1",
   "org.eclipse.jetty"               % "jetty-webapp"             % JettyVersion    % "provided",
   "javax.servlet"                   % "javax.servlet-api"        % "3.1.0"         % "provided",
   "junit"                           % "junit"                    % "4.13.2"        % "test",
