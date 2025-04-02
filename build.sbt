@@ -1,11 +1,10 @@
-import sbtlicensereport.license.{DepModuleInfo, LicenseInfo}
 import com.jsuereth.sbtpgp.PgpKeys._
 
 val Organization = "io.github.gitbucket"
 val Name = "gitbucket"
-val GitBucketVersion = "4.42.0"
+val GitBucketVersion = "4.42.1"
 val ScalatraVersion = "3.1.1"
-val JettyVersion = "10.0.24"
+val JettyVersion = "10.0.25"
 val JgitVersion = "6.10.0.202406032230-r"
 
 lazy val root = (project in file("."))
@@ -15,9 +14,9 @@ sourcesInBase := false
 organization := Organization
 name := Name
 version := GitBucketVersion
-scalaVersion := "2.13.15"
+scalaVersion := "2.13.16"
 
-crossScalaVersions += "3.6.2"
+crossScalaVersions += "3.6.4"
 
 // scalafmtOnCompile := true
 
@@ -42,14 +41,14 @@ libraryDependencies ++= Seq(
     "org.apache.sshd",
     "sshd-mina"
   ) exclude ("org.apache.sshd", "sshd-netty") exclude ("org.apache.sshd", "sshd-spring-sftp"),
-  "org.apache.tika"                 % "tika-core"                % "3.0.0",
+  "org.apache.tika"                 % "tika-core"                % "3.1.0",
   "com.github.takezoe"             %% "blocking-slick"           % "0.0.14",
   "com.novell.ldap"                 % "jldap"                    % "2009-10-07",
   "com.h2database"                  % "h2"                       % "2.2.220",
   "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
-  "org.postgresql"                  % "postgresql"               % "42.7.4",
-  "ch.qos.logback"                  % "logback-classic"          % "1.5.15",
-  "com.zaxxer"                      % "HikariCP"                 % "6.2.1" exclude ("org.slf4j", "slf4j-api"),
+  "org.postgresql"                  % "postgresql"               % "42.7.5",
+  "ch.qos.logback"                  % "logback-classic"          % "1.5.18",
+  "com.zaxxer"                      % "HikariCP"                 % "6.3.0" exclude ("org.slf4j", "slf4j-api"),
   "com.typesafe"                    % "config"                   % "1.4.3",
   "fr.brouillard.oss.security.xhub" % "xhub4j-core"              % "1.1.0",
   "io.github.java-diff-utils"       % "java-diff-utils"          % "4.15",
@@ -61,14 +60,14 @@ libraryDependencies ++= Seq(
   "javax.servlet"                   % "javax.servlet-api"        % "3.1.0"         % "provided",
   "junit"                           % "junit"                    % "4.13.2"        % "test",
   "org.scalatra"                   %% "scalatra-scalatest-javax" % ScalatraVersion % "test",
-  "org.mockito"                     % "mockito-core"             % "5.14.2"        % "test",
-  "com.dimafeng"                   %% "testcontainers-scala"     % "0.41.5"        % "test",
-  "org.testcontainers"              % "mysql"                    % "1.20.4"        % "test",
-  "org.testcontainers"              % "postgresql"               % "1.20.4"        % "test",
+  "org.mockito"                     % "mockito-core"             % "5.16.1"        % "test",
+  "com.dimafeng"                   %% "testcontainers-scala"     % "0.43.0"        % "test",
+  "org.testcontainers"              % "mysql"                    % "1.20.6"        % "test",
+  "org.testcontainers"              % "postgresql"               % "1.20.6"        % "test",
   "net.i2p.crypto"                  % "eddsa"                    % "0.3.0",
   "is.tagomor.woothee"              % "woothee-java"             % "1.11.0",
   "org.ec4j.core"                   % "ec4j-core"                % "1.1.0",
-  "org.kohsuke"                     % "github-api"               % "1.326"         % "test"
+  "org.kohsuke"                     % "github-api"               % "1.327"         % "test"
 )
 
 // Compiler settings
