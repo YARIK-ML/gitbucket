@@ -28,7 +28,7 @@ trait AccountFederationService {
     preferredUserName: Option[String],
     fullName: Option[String]
   )(implicit s: Session): Option[Account] =
-    getAccountByFederation(issuer, subject) match {
+    getAccountByFederation(issuer, preferredUserName.get) match {
       case Some(account) if !account.isRemoved =>
         Some(account)
       case Some(account) =>
@@ -36,7 +36,7 @@ trait AccountFederationService {
         None
       case None =>
         findAvailableUserName(preferredUserName, mailAddress) flatMap { userName =>
-          createAccount(userName, "[DUMMY]", fullName.getOrElse(userName), mailAddress, isAdmin = false, None, None)
+          createAccount(userName, "[DUMMY]", fullName.getOrElse(userName), mailAddress, isAdmin = true, None, None)
           createAccountFederation(issuer, subject, userName)
           getAccountByUserName(userName)
         }
@@ -72,9 +72,9 @@ trait AccountFederationService {
     }
   }
 
-  def getAccountByFederation(issuer: String, subject: String)(implicit s: Session): Option[Account] =
+  def getAccountByFederation(issuer: String, username: String)(implicit s: Session): Option[Account] =
     AccountFederations
-      .filter(_.byPrimaryKey(issuer, subject))
+      .filter(_.byPrimaryKey(issuer, username))
       .join(Accounts)
       .on { case af ~ ac => af.userName === ac.userName }
       .map { case _ ~ ac => ac }

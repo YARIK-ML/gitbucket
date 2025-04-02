@@ -40,11 +40,11 @@ libraryDependencies ++= Seq(
   "org.apache.sshd"           % "apache-sshd"                  % "2.15.0" exclude ("org.slf4j", "slf4j-jdk14") exclude (
     "org.apache.sshd",
     "sshd-mina"
-  ) exclude ("org.apache.sshd", "sshd-netty"),
+  ) exclude ("org.apache.sshd", "sshd-netty") exclude ("org.apache.sshd", "sshd-spring-sftp"),
   "org.apache.tika"                 % "tika-core"                % "3.1.0",
   "com.github.takezoe"             %% "blocking-slick"           % "0.0.14",
   "com.novell.ldap"                 % "jldap"                    % "2009-10-07",
-  "com.h2database"                  % "h2"                       % "1.4.199",
+  "com.h2database"                  % "h2"                       % "2.2.220",
   "org.mariadb.jdbc"                % "mariadb-java-client"      % "2.7.12",
   "org.postgresql"                  % "postgresql"               % "42.7.5",
   "ch.qos.logback"                  % "logback-classic"          % "1.5.18",
